@@ -1,5 +1,6 @@
 <configure
-    xmlns="http://namespaces.zope.org/zope">
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml">
 
   <include package=".auth" />
   <include package=".components"/>
@@ -14,5 +15,7 @@
   <include package=".users"/>
   <include package=".vocabularies"/>
   <include package=".workflow"/>
+  <include package=".multilingual"
+      zcml:condition="have plone-5"/>
 
 </configure>
