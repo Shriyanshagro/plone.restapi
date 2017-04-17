@@ -35,6 +35,8 @@ Contents
    groups
    roles
    components
+   breadcrumbs
+   navigation
    serialization
    searching
    tusupload
