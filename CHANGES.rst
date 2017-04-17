@@ -4,7 +4,11 @@ Changelog
 1.0a20 (unreleased)
 -------------------
 
-- Nothing changed yet.
+New Features:
+
+- Add navigation and breadcrumbs as top-level services. Deprecate navigation
+  and breadcrumbs as components.
+  [timo]
 
 
 1.0a19 (2017-06-25)
