@@ -33,6 +33,7 @@ Contents
    serialization
    searching
    vocabularies
+   controlpanels
    customization
    conventions
 
