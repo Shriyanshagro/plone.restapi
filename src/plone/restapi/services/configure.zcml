@@ -4,6 +4,7 @@
   <include package=".auth" />
   <include package=".components"/>
   <include package=".content"/>
+  <include package=".controlpanels" />
   <include package=".copymove"/>
   <include package=".groups"/>
   <include package=".principals"/>

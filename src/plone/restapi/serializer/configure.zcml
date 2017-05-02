@@ -66,5 +66,8 @@
 
     <adapter factory=".vocabularies.SerializeVocabularyToJson" />
     <adapter factory=".vocabularies.SerializeTermToJson" />
+    
+    <adapter factory=".controlpanels.ControlpanelSerializeToJson" />
+    <adapter factory=".controlpanels.ControlpanelSummarySerializeToJson" />
 
 </configure>
