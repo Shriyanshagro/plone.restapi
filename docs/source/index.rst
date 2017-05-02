@@ -36,6 +36,7 @@ Contents
    vocabularies
    customization
    conventions
+   translations
 
 .. include:: ../../README.rst
 
@@ -49,4 +50,3 @@ Appendix, Indices and tables
    glossary
 
 * :ref:`genindex`
-
