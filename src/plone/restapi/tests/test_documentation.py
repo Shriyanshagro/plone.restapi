@@ -46,6 +46,13 @@ base_path = os.path.join(
     'docs/source/_json'
 )
 
+try:
+    from Products.CMFPlone.factory import _IMREALLYPLONE5  # noqa
+except ImportError:
+    PLONE5 = False
+else:
+    PLONE5 = True
+
 
 def pretty_json(data):
     return json.dumps(data, sort_keys=True, indent=4, separators=(',', ': '))
@@ -778,12 +785,14 @@ class TestTraversal(unittest.TestCase):
         )
         save_request_and_response_for_docs('sharing_folder_post', response)
 
+    @unittest.skipIf(not PLONE5, 'Just Plone 5 currently.')
     def test_controlpanels_get_listing(self):
         response = self.api_session.get(
             '/@controlpanels'
         )
         save_request_and_response_for_docs('controlpanels_get', response)
 
+    @unittest.skipIf(not PLONE5, 'Just Plone 5 currently.')
     def test_controlpanels_get_item(self):
         response = self.api_session.get(
             '/@controlpanels/editing'
