@@ -1,10 +1,13 @@
 <configure
-    xmlns="http://namespaces.zope.org/zope">
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml">
 
   <include package=".auth" />
   <include package=".components"/>
   <include package=".content"/>
-  <include package=".controlpanels" />
+  <configure zcml:condition="have plone-5">
+    <include package=".controlpanels" />
+  </configure>
   <include package=".copymove"/>
   <include package=".groups"/>
   <include package=".principals"/>
