@@ -777,3 +777,15 @@ class TestTraversal(unittest.TestCase):
             json=payload
         )
         save_request_and_response_for_docs('sharing_folder_post', response)
+
+    def test_controlpanels_get_listing(self):
+        response = self.api_session.get(
+            '/@controlpanels'
+        )
+        save_request_and_response_for_docs('controlpanels_get', response)
+
+    def test_controlpanels_get_item(self):
+        response = self.api_session.get(
+            '/@controlpanels/editing'
+        )
+        save_request_and_response_for_docs('controlpanels_get_item', response)
