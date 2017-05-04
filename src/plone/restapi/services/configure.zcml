@@ -10,6 +10,7 @@
   </configure>
   <include package=".copymove"/>
   <include package=".groups"/>
+  <include package=".history"/>
   <include package=".principals"/>
   <include package=".registry"/>
   <include package=".search"/>

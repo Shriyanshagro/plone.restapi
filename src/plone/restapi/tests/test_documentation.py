@@ -785,6 +785,17 @@ class TestTraversal(unittest.TestCase):
         )
         save_request_and_response_for_docs('sharing_folder_post', response)
 
+    def test_history_get(self):
+        self.document.setTitle('My new title')
+        url = '{}/@history'.format(self.document.absolute_url())
+        response = self.api_session.get(url)
+        save_request_and_response_for_docs('history_get', response)
+
+    def test_history_revert(self):
+        url = '{}/@history'.format(self.document.absolute_url())
+        response = self.api_session.patch(url, json={'version': 0})
+        save_request_and_response_for_docs('history_revert', response)
+
     @unittest.skipIf(not PLONE5, 'Just Plone 5 currently.')
     def test_controlpanels_get_listing(self):
         response = self.api_session.get(
