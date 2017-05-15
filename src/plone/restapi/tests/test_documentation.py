@@ -784,9 +784,21 @@ class TestTraversal(unittest.TestCase):
 
     def test_documentation_expansion(self):
         response = self.api_session.get(
-            '/front-page?expand=breadcrumbs,workflow'
+            '/front-page'
         )
         save_request_and_response_for_docs('expansion', response)
+
+    def test_documentation_expansion_expanded(self):
+        response = self.api_session.get(
+            '/front-page?expand=breadcrumbs'
+        )
+        save_request_and_response_for_docs('expansion_expanded', response)
+
+    def test_documentation_expansion_expanded_full(self):
+        response = self.api_session.get(
+            '/front-page?expand=breadcrumbs,navigation,schema,workflow'
+        )
+        save_request_and_response_for_docs('expansion_expanded_full', response)
 
     def test_history_get(self):
         self.document.setTitle('My new title')
