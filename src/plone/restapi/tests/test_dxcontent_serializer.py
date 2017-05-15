@@ -132,3 +132,9 @@ class TestDXContentSerializer(unittest.TestCase):
         obj = self.serialize()
         self.assertIn('foo', obj)
         self.assertEqual('collapsed', obj['foo'])
+
+    def test_get_layout(self):
+        current_layout = self.portal.doc1.getLayout()
+        obj = self.serialize()
+        self.assertIn('layout', obj)
+        self.assertEquals(current_layout, obj['layout'])

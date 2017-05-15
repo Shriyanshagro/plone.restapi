@@ -1,7 +1,94 @@
 Changelog
 =========
 
-1.0a10 (unreleased)
+1.0a16 (unreleased)
+-------------------
+
+- Nothing changed yet.
+
+
+1.0a15 (2017-05-15)
+-------------------
+
+New Features:
+
+- Reorder children in a item using the content endpoint.
+  [jaroel]
+
+- Add batched listing of registry entries to @registry endpoint.
+  [jaroel]
+
+
+1.0a14 (2017-05-02)
+-------------------
+
+New Features:
+
+- Add @history endpoint.
+  [jaroel]
+
+Bugfixes:
+
+- Fix the @move endpoint fails to return 403 when the user don't have proper
+  delete permissions over the parent folder.
+  [sneridagh]
+
+
+1.0a13 (2017-04-18)
+-------------------
+
+New Features:
+
+- Add support for setting/modifying 'layout' on DX and AT content endpoints.
+  [jaroel]
+
+- Add support for getting the defined layouts on the root types endpoint.
+  [jaroel]
+
+Bugfixes:
+
+- Add the title to the workflow history in the @workflow endpoint.
+  This fixes #279.
+  [sneridagh]
+
+- Don't fetch unnecessary PasswordResetTool in Plone 5.1
+  [tomgross]
+
+
+1.0a12 (2017-04-03)
+-------------------
+
+Bugfixes:
+
+- Handle special case when user @move content that cannot delete returning
+  proper 403
+  [sneridagh]
+
+
+1.0a11 (2017-03-24)
+-------------------
+
+Bugfixes:
+
+- Remove zope.intid dependency from copy/move endpoint. Remove plone.api
+  dependency from principals endpoint. Make
+  ChoiceslessRelationListSchemaProvider available only if z3c.relationfield
+  is installed. This fixes https://github.com/plone/plone.restapi/issues/288
+  [erral]
+
+- Remove unittest2 imports from tests.
+  [timo]
+
+- Add Products.PasswortResetTool to dependencies. This dependency is gone in
+  Plone 5.1.
+  [timo]
+
+- Make import of LocalrolesModifiedEvent conditional, so plone.restapi
+  doesn't prevent Plone 4.3 deployments < 4.3.4 from booting.
+  [lgraf]
+
+
+1.0a10 (2017-03-22)
 -------------------
 
 New Features:
@@ -13,9 +100,9 @@ New Features:
   [timo,csenger,sneridagh]
 
 - Add @copy and @move endpoints.
-  [buchi]
+  [buchi,sneridagh]
 
-- Docs: Use sphinxcontrib-httpexample and convert existing examples.
+- Docs: Convert all HTTP examples to use sphinxcontrib-httpexample.
   [lgraf]
 
 - Add 'addable' attribute to the @types endpoint. It specifies if the content
@@ -36,11 +123,14 @@ New Features:
   sharing UI widget or other user/groups search widgets.
   [sneridagh]
 
-- Add reset-password action to the user endpoint.
+- Add reset-password action to the @users endpoint.
   https://github.com/plone/plone.restapi/issues/158
   [timo,csenger]
 
 Bugfixes:
+
+- Fix coveralls reporting.
+  [timo]
 
 - Return correct @id for folderish objects created via POST.
   [lgraf]

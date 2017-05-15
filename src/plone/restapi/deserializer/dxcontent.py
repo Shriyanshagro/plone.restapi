@@ -21,10 +21,12 @@ from zope.schema import getFields
 from zope.schema.interfaces import ValidationError
 from zope.security.interfaces import IPermission
 
+from .mixins import OrderingMixin
+
 
 @implementer(IDeserializeFromJson)
 @adapter(IDexterityContent, Interface)
-class DeserializeFromJson(object):
+class DeserializeFromJson(OrderingMixin, object):
     def __init__(self, context, request):
         self.context = context
         self.request = request
@@ -32,7 +34,7 @@ class DeserializeFromJson(object):
         self.sm = getSecurityManager()
         self.permission_cache = {}
 
-    def __call__(self, validate_all=False):
+    def __call__(self, validate_all=False):  # noqa: ignore=C901
         data = json_body(self.request)
 
         modified = False
@@ -104,6 +106,15 @@ class DeserializeFromJson(object):
 
         if errors:
             raise BadRequest(errors)
+
+        # We'll set the layout after the validation and and even if there
+        # are no other changes.
+        if 'layout' in data:
+            layout = data['layout']
+            self.context.setLayout(layout)
+
+        # OrderingMixin
+        self.handle_ordering(data)
 
         if modified:
             notify(ObjectModifiedEvent(self.context))

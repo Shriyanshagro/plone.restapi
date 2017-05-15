@@ -38,6 +38,11 @@ class WorkflowInfo(object):
                 'title': action['title'],
             })
 
+        for item, action in enumerate(history):
+            history[item]['title'] = wftool.getTitleForStateOnType(
+                action['review_state'],
+                self.context.portal_type)
+
         return {'@workflow': {
             'history': json_compatible(history),
             'transitions': transitions,
