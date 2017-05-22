@@ -16,8 +16,10 @@ Bugfixes:
 New Features:
 
 - Add @controlpanels endpoint.
+  [jaroel,timo]
 
 - Add @roles endpoint to list defined global roles.
+  [jaroel]
 
 - Add schema to @registry listing.
   [jaroel]
