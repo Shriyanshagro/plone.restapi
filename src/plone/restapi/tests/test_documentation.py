@@ -370,6 +370,10 @@ class TestTraversal(unittest.TestCase):
             json={'plone.app.querystring.field.path.title': 'Value'})
         save_request_and_response_for_docs('registry_update', response)
 
+    def test_documentation_registry_get_list(self):
+        response = self.api_session.get('/@registry')
+        save_request_and_response_for_docs('registry_get_list', response)
+
     def test_documentation_types(self):
         response = self.api_session.get('/@types')
         save_request_and_response_for_docs('types', response)
@@ -633,7 +637,8 @@ class TestTraversal(unittest.TestCase):
                 'title': 'Framework Team',
                 'description': 'The Plone Framework Team',
                 'roles': ['Manager'],
-                'groups': ['Administrators']
+                'groups': ['Administrators'],
+                'users': [SITE_OWNER_NAME, TEST_USER_ID]
             },
         )
         save_request_and_response_for_docs('groups_created', response)
@@ -655,6 +660,7 @@ class TestTraversal(unittest.TestCase):
             '/@groups/ploneteam',
             json={
                 'email': 'ploneteam2@plone.org',
+                'users': {TEST_USER_ID: False}
             },
         )
         save_request_and_response_for_docs('groups_update', response)
@@ -809,3 +815,8 @@ class TestTraversal(unittest.TestCase):
             '/@controlpanels/editing'
         )
         save_request_and_response_for_docs('controlpanels_get_item', response)
+
+    def test_roles_get(self):
+        url = '{}/@roles'.format(self.portal_url)
+        response = self.api_session.get(url)
+        save_request_and_response_for_docs('roles', response)
