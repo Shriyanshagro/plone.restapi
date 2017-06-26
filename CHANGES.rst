@@ -1,10 +1,83 @@
 Changelog
 =========
 
-1.0a16 (unreleased)
+1.0a20 (unreleased)
 -------------------
 
 - Nothing changed yet.
+
+
+1.0a19 (2017-06-25)
+-------------------
+
+New Features:
+
+- Implement tus.io upload endpoint.
+  [buchi]
+
+
+1.0a18 (2017-06-14)
+-------------------
+
+New Features:
+
+- Add "&fullobject" parameter in @search to retrieve full objects
+  [ebrehault]
+
+Bugfixes:
+
+- Tweaks to README.rst
+  [tkimnguyen]
+
+
+1.0a17 (2017-05-31)
+-------------------
+
+Breaking Changes:
+
+- Change RichText field value to use 'output' instead of 'raw' to fix inline
+  paths. This fixes #302.
+  [erral]
+
+New Features:
+
+- Automatically publish docker images on hub.docker.com.
+  [timo]
+
+Bugfixes:
+
+- Docs: Fix batching example request/response.
+  [lgraf]
+
+
+1.0a16 (2017-05-23)
+-------------------
+
+New Features:
+
+- Add @comments endpoint.
+  [jaroel,timo,pjoshi]
+
+- Add @roles endpoint to list defined global roles.
+  [jaroel]
+
+- Add JSON schema to @registry listing.
+  [jaroel]
+
+- Allow to manipulate the group membership in the @groups endpoint.
+  [jaroel]
+
+- List and mutate global roles assigned to a user in the @users endpoint.
+  [jaroel]
+
+Bugfixes:
+
+- Bind schema field to context to handle context vocabularies. #389
+  [csenger]
+
+- The inherit flag was the wrong way around.
+  Blocked inherit showed up as non-blocked.
+  [jaroel]
 
 
 1.0a15 (2017-05-15)
@@ -38,6 +111,10 @@ Bugfixes:
 -------------------
 
 New Features:
+
+- Add support for a 'search' parameter to @sharing. This returns additional
+  principals in 'entries', also flagging the acquired and inherited fields.
+  [jaroel]
 
 - Add support for setting/modifying 'layout' on DX and AT content endpoints.
   [jaroel]

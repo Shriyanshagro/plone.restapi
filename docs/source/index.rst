@@ -24,6 +24,7 @@ Contents
    content
    history
    batching
+   comments
    copymove
    expansion
    workflow
@@ -31,9 +32,12 @@ Contents
    registry
    types
    users
+   groups
+   roles
    components
    serialization
    searching
+   tusupload
    vocabularies
    customization
    conventions

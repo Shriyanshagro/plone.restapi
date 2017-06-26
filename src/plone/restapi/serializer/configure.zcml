@@ -58,7 +58,9 @@
     <adapter factory=".catalog.LazyCatalogResultSerializer" />
 
     <adapter factory=".user.SerializeUserToJson" />
+    <adapter factory=".user.SerializeUserToJsonSummary" />
     <adapter factory=".group.SerializeGroupToJson" />
+    <adapter factory=".group.SerializeGroupToJsonSummary" />
 
     <adapter factory=".local_roles.SerializeLocalRolesToJson"
              name="local_roles"
@@ -68,5 +70,8 @@
     <adapter factory=".vocabularies.SerializeTermToJson" />
     
     <adapter factory=".registry.SerializeRegistryToJson" />
+    
+    <adapter factory=".discussion.ConversationSerializer" />
+    <adapter factory=".discussion.CommentSerializer" />
 
 </configure>
