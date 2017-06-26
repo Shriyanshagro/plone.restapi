@@ -1,15 +1,31 @@
 Changelog
 =========
 
-1.0a18 (unreleased)
+1.0a20 (unreleased)
 -------------------
-
-New Features:
 
 - Add @controlpanels endpoint.
   [jaroel,timo]
 
-- tweaks to README.rst
+
+1.0a19 (2017-06-25)
+-------------------
+
+- Implement tus.io upload endpoint.
+  [buchi]
+
+
+1.0a18 (2017-06-14)
+-------------------
+
+New Features:
+
+- Add "&fullobject" parameter in @search to retrieve full objects
+  [ebrehault]
+
+Bugfixes:
+
+- Tweaks to README.rst
   [tkimnguyen]
 
 

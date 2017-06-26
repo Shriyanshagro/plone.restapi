@@ -36,6 +36,7 @@ Contents
    components
    serialization
    searching
+   tusupload
    vocabularies
    controlpanels
    customization
