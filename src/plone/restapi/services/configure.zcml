@@ -8,6 +8,7 @@
   <include package=".copymove"/>
   <include package=".discussion"/>
   <include package=".groups"/>
+  <include package=".navigation"/>
   <include package=".history"/>
   <include package=".navigation"/>
   <include package=".principals"/>
