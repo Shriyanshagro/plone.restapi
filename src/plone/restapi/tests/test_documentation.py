@@ -843,7 +843,6 @@ class TestTraversal(unittest.TestCase):
             '/folder/doc/@sharing?search=admin'
         )
         save_request_and_response_for_docs('sharing_search', response)
-        
 
     def test_history_get(self):
         self.document.setTitle('My new title')
