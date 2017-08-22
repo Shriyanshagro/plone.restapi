@@ -51,19 +51,8 @@ class DatetimeFieldDeserializer(DefaultFieldDeserializer):
              So while converting to python datetime object, it losses some info
              like timezone information
             '''
-            # python datetime object
-            pyValue = value
-            pyValue = DateTime(pyValue).asdatetime()
-
-            if pyValue.tzinfo:
-                # tzone not set to pyValue.tzinfo because it is in GMT offsets
-                tzone = get_localzone()
-                value = DateTime(value).toZone(DateTime().localZone()
-                ).asdatetime().replace(tzinfo=tzone)
-
-            else:
-                value = DateTime(value).toZone(DateTime().localZone()
-                ).asdatetime().replace(tzinfo=None)
+            value = DateTime(value).toZone(DateTime().localZone()
+            ).asdatetime().replace(tzinfo=None)
 
         except (SyntaxError, DateTimeError) as e:
             raise ValueError(e.message)

@@ -29,3 +29,5 @@ npm-debug.log
 .DS_Store
 jmeter.log
 pip-selfcheck.json
+share/*
+local*
